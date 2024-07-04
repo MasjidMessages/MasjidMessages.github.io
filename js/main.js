@@ -13,7 +13,7 @@ var mFootnotesTitleElement;
 var mFootnotesListElement;
 var currentMessage = 0;
 var size = 18;
-var speed = 20;
+var speed = 100;
 var startIn = 59;
 window.addEventListener("load", function (event) {
     main();
