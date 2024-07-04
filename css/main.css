@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Amiri";
+  src: url(/fonts/Amiri/Amiri-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Beiruti";
+  src: url(/fonts/Beiruti/Beiruti-VariableFont_wght.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url(/fonts/Rubik/Rubik-Italic-VariableFont_wght.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoNaskh";
+  src: url(/fonts/Noto_Naskh_Arabic/NotoNaskhArabic-VariableFont_wght.ttf)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tajawal";
+  src: url(/fonts/Tajawal/Tajawal-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lateef";
+  src: url(/fonts/Lateef/Lateef-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Fustat";
+  src: url(/fonts/Fustat/Fustat-VariableFont_wght.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cairo";
+  src: url(/fonts/Cairo/Cairo-VariableFont_slnt_wght.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Almarai";
+  src: url(/fonts/Almarai/Almarai-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Reset styles */
+* {
+  box-sizing: border-box;
+  border: 0px;
+  margin: 0px;
+  font-size: 100%;
+  font: inherit;
+  direction: rtl;
+  margin-bottom: 1.5rem;
+}
+html {
+  /*Main Font-size*/
+  font-size: 18px;
+  overflow: hidden;
+}
+.braces,
+.ayah {
+  color: goldenrod;
+  overflow: hidden;
+}
+
+body {
+  padding: 0.5rem 0.5rem;
+}
+
+sup {
+  font-size: 0.5em;
+  color: red;
+}
+ol li::marker {
+  color: red;
+}
+ol {
+  list-style: arabic-indic;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+ol li {
+  margin: 0 0;
+}
+.repeatLabel {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid goldenrod;
+}
+#mTitle {
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid goldenrod;
+  text-align: center;
+  font-family: Cairo;
+  font-size: 1rem;
+}
+#mBody {
+  font-size: 2.5rem;
+  font-family: Lateef;
+}
+#mBodyList {
+  font-size: 2.2rem;
+  font-family: Lateef;
+}
+#mRepeatLabels,
+.repeatLabel {
+  font-family: Beiruti;
+  font-size: 1rem;
+}
+#mFootnotesTitle {
+  border-top: 0.1rem solid black;
+  font-family: Amiri;
+  font-size: 1rem;
+  margin: 0 0 0 0;
+}
+#mFootnotesList {
+  padding-top: 0.2rem;
+  font-family: Amiri;
+  font-size: 1rem;
+}
