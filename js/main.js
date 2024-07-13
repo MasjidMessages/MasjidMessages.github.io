@@ -1,4 +1,4 @@
-var skipStartScreen = true;
+var skipStartScreen = false;
 
 /* ----------------------------------------- */
 /*             DO NOT MODIFY JS              */

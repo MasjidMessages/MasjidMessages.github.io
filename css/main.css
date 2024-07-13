@@ -1,55 +1,54 @@
 @font-face {
   font-family: "Amiri";
-  src: url(/fonts/Amiri/Amiri-Regular.ttf) format("truetype");
+  src: url(/fonts/Amiri/Amiri-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Beiruti";
-  src: url(/fonts/Beiruti/Beiruti-VariableFont_wght.ttf) format("truetype");
+  src: url(/fonts/Beiruti/Beiruti-VariableFont_wght.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Rubik";
-  src: url(/fonts/Rubik/Rubik-Italic-VariableFont_wght.ttf) format("truetype");
+  src: url(/fonts/Rubik/Rubik-Italic-VariableFont_wght.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "NotoNaskh";
-  src: url(/fonts/Noto_Naskh_Arabic/NotoNaskhArabic-VariableFont_wght.ttf)
-    format("truetype");
+  src: url(/fonts/Noto_Naskh_Arabic/NotoNaskhArabic-VariableFont_wght.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Tajawal";
-  src: url(/fonts/Tajawal/Tajawal-Regular.ttf) format("truetype");
+  src: url(/fonts/Tajawal/Tajawal-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Lateef";
-  src: url(/fonts/Lateef/Lateef-Regular.ttf) format("truetype");
+  src: url(/fonts/Lateef/Lateef-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Fustat";
-  src: url(/fonts/Fustat/Fustat-VariableFont_wght.ttf) format("truetype");
+  src: url(/fonts/Fustat/Fustat-VariableFont_wght.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Cairo";
-  src: url(/fonts/Cairo/Cairo-VariableFont_slnt_wght.ttf) format("truetype");
+  src: url(/fonts/Cairo/Cairo-VariableFont_slnt_wght.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Almarai";
-  src: url(/fonts/Almarai/Almarai-Regular.ttf) format("truetype");
+  src: url(/fonts/Almarai/Almarai-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
