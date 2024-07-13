@@ -96,7 +96,6 @@ ol li {
 .repeatLabel {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  padding: 0.5rem;
   border-bottom: 0.1rem solid goldenrod;
 }
 #mTitle {
@@ -116,8 +115,8 @@ ol li {
 }
 #mRepeatLabels,
 .repeatLabel {
-  font-family: Beiruti;
-  font-size: 1rem;
+  font-family: Cairo;
+  font-size: 0.9rem;
 }
 #mFootnotesTitle {
   border-top: 0.1rem solid black;
