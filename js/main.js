@@ -1,4 +1,4 @@
-var skipStartScreen = false;
+var constantDelay = true;
 
 /* ----------------------------------------- */
 /*             DO NOT MODIFY JS              */
@@ -144,10 +144,6 @@ function main() {
     mRepeatLabelsElement = document.getElementById("mRepeatLabels");
     mFootnotesTitleElement = document.getElementById("mFootnotesTitle");
     mFootnotesListElement = document.getElementById("mFootnotesList");
-    if (skipStartScreen) {
-        nextMessage();
-        return;
-    }
     let qString = (window.location.search.replace(/\?/g, "")).split("&");
     for (let i = 0; i < qString.length; i++) {
         let pair = qString[i].split("=");
@@ -166,8 +162,14 @@ function main() {
     let startDate = new Date(date.valueOf())
     let startInSeconds = (1 - date.getMinutes() % 2) * 60 + (60 - new Date().getSeconds());
     startDate.setSeconds(startDate.getSeconds() + startInSeconds);
-    setTimeout(nextMessage, startDate.getTime() - new Date().getTime());
-    mFootnotesListElement.innerHTML = "<ol><li>العرض " + englishToArabicNumbers(String(window.innerWidth)) + "</li><li>الطول " + englishToArabicNumbers(String(window.innerHeight)) + "</li><li>سيبدأ البرنامج " + startDate.toLocaleTimeString("ar-sa") + "</li></ol>"
+    if (constantDelay) {
+        setTimeout(nextMessage, 5000);
+        mFootnotesListElement.innerHTML = "<ol><li>العرض " + englishToArabicNumbers(String(window.innerWidth)) + "</li><li>الطول " + englishToArabicNumbers(String(window.innerHeight)) + "</li></ol>"
+    } else {
+        setTimeout(nextMessage, startDate.getTime() - new Date().getTime());
+        mFootnotesListElement.innerHTML = "<ol><li>العرض " + englishToArabicNumbers(String(window.innerWidth)) + "</li><li>الطول " + englishToArabicNumbers(String(window.innerHeight)) + "</li><li>سيبدأ البرنامج " + startDate.toLocaleTimeString("ar-sa") + "</li></ol>"
+    }
+
 
 }
 
