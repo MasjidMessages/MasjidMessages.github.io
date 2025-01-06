@@ -76,6 +76,8 @@ html {
 
 body {
   padding: 0.5rem 0.5rem;
+  background-color: white;
+  color: black;
 }
 
 sup {
@@ -96,11 +98,13 @@ ol li {
 .repeatLabel {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  border-bottom: 0.1rem solid goldenrod;
+  border-bottom-style: solid;
+  border-bottom-width: 0.1rem;
 }
 #mTitle {
   padding: 0.5rem;
-  border-bottom: 0.1rem solid goldenrod;
+  border-bottom-style: solid;
+  border-bottom-width: 0.1rem;
   text-align: center;
   font-family: Cairo;
   font-size: 1rem;
@@ -119,7 +123,8 @@ ol li {
   font-size: 0.9rem;
 }
 #mFootnotesTitle {
-  border-top: 0.1rem solid black;
+  border-top-width: 0.1rem;
+  border-top-style: solid;
   font-family: Amiri;
   font-size: 1rem;
   margin: 0 0 0 0;

@@ -11,13 +11,59 @@ var mBodyListElement;
 var mRepeatLabelsElement;
 var mFootnotesTitleElement;
 var mFootnotesListElement;
+var themeElement;
+var themeBackground = ["#000000",
+    "#333533",
+    "#233d4d",
+    "#0d3b66",
+    "#ffecd1",
+
+    "#354f52"];
+var themeText = ["#ffffff",
+    "#f5cb5c",
+    "#fe7f2d",
+    "#faf0ca",
+    "#15616d",
+
+    "#edf2f4"];
+var themeBrace = ["#fca311",
+    "#e8eddf",
+    "#619b8a",
+    "#f4d35e",
+    "#ff7d00",
+
+    "#ca6702"];
+var themeMarker = ["#eb5e28",
+    "#ff9b54",
+    "#a1c181",
+    "#ee964b",
+    "#78290f",
+
+    "#56cfe1"];
+
+
+var currentTheme = 0;
 var currentMessage = 0;
 var size = 18;
-var speed = 100;
+var speed = 120; //100
 var startIn = 59;
 window.addEventListener("load", function (event) {
     main();
 });
+
+function changeTheme() {
+    let brace = ".braces,.ayah{color: " + themeBrace[currentTheme] + ";}";
+    let body = "body{ background-color: " + themeBackground[currentTheme] + "; color: " + themeText[currentTheme] + ";}";
+    let sup = "sup{ color: " + themeMarker[currentTheme] + ";}"
+    let marker = "ol li::marker {color: " + themeMarker[currentTheme] + ";}"
+    let repeat = ".repeatLabel {border-bottom-color: " + themeMarker[currentTheme] + ";}";
+    let title = "#mTitle {border-bottom-color: " + themeBrace[currentTheme] + ";}";
+    let footnotes = "#mFootnotesTitle {border-top-color: " + themeBrace[currentTheme] + ";}";
+    themeElement.innerHTML = brace + "\n" + body + "\n" + sup + "\n" + marker + "\n" + repeat + "\n" + title + "\n" + footnotes;
+    currentTheme++;
+    if (currentTheme >= themeBrace.length)
+        currentTheme = 0;
+}
 
 /* Messages Constructor Function */
 function Message(
@@ -25,10 +71,12 @@ function Message(
     body = "",
     bodyList = [],
     footnotesTitle = "",
-    footnotes = []
+    footnotes = [],
+    startingAyah = 1
 ) {
+    this.startingAyah = startingAyah;
     this.title = englishToArabicNumbers(title);
-    this.body = starToAyahNumber(englishToArabicNumbers(body))
+    this.body = starToAyahNumber(englishToArabicNumbers(body), startingAyah)
         .replace(/\(/g, "<sup>")
         .replace(/\)/g, "</sup>");
     this.bodyList = createOL(listEngToArab(bodyList));
@@ -39,6 +87,8 @@ function Message(
 }
 
 function outputMessage(m) {
+    if (currentMessage === 0)
+        changeTheme();
     mTitleElement.innerHTML = m.title + " " + englishToArabicNumbers(String(currentMessage + 1)) + " من " + englishToArabicNumbers(String(messages.length));
     mBodyElement.innerHTML = m.body;
     mBodyListElement.innerHTML = m.bodyList;
@@ -56,14 +106,16 @@ function MorningEveningMessage(
     footnotes = [],
     footnotesTitle = "",
     basmallah = false,
-    taooth = false
+    taooth = false,
+    startingAyah = 1
 ) {
-    let m = new Message(title, body, undefined, footnotesTitle, footnotes);
+    let m = new Message(title, body, undefined, footnotesTitle, footnotes, startingAyah);
     m.morning = morning;
     m.evening = evening;
     m.day = day;
     m.basmallah = basmallah;
     m.taooth = taooth;
+    console.log(m.startingAyah)
     if (m.basmallah || m.taooth) {
         m.body =
             "<span class='braces'>﴿</span>" +
@@ -107,7 +159,7 @@ function englishToArabicNumbers(s) {
 function starToAyahNumber(s, start = 1) {
     tempCount = start;
     return s.replace(/\*/g, function () {
-        let arabic = "٠١٢٣٤٥٦٧٨٩"[tempCount];
+        let arabic = englishToArabicNumbers(tempCount.toString().replace())
         tempCount++;
         return "<span class='ayah'>" + "۝" + "</span>" + arabic;
     });
@@ -144,6 +196,9 @@ function main() {
     mRepeatLabelsElement = document.getElementById("mRepeatLabels");
     mFootnotesTitleElement = document.getElementById("mFootnotesTitle");
     mFootnotesListElement = document.getElementById("mFootnotesList");
+    themeElement = document.getElementById("theme");
+    changeTheme();//set to initial them 
+    currentTheme = 0;
     let qString = (window.location.search.replace(/\?/g, "")).split("&");
     for (let i = 0; i < qString.length; i++) {
         let pair = qString[i].split("=");
