@@ -68,6 +68,7 @@ html {
   font-size: 18px;
   overflow: hidden;
 }
+
 .braces,
 .ayah {
   color: goldenrod;
@@ -75,9 +76,15 @@ html {
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
   padding: 0.5rem 0.5rem;
-  background-color: white;
-  color: black;
+  /*
+  background-image: linear-gradient(
+    145deg,
+    rgba(195, 44, 44, 0) 0%,
+    rgba(166, 26, 26, 0.99) 90%
+  );*/
 }
 
 sup {
@@ -105,7 +112,7 @@ ol li {
   padding: 0.5rem;
   border-bottom-style: solid;
   border-bottom-width: 0.1rem;
-  text-align: center;
+  /*text-align: center*/
   font-family: Cairo;
   font-size: 1rem;
 }

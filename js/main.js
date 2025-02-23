@@ -1,4 +1,5 @@
 var constantDelay = true;
+var rotateTheme = false;
 
 /* ----------------------------------------- */
 /*             DO NOT MODIFY JS              */
@@ -16,30 +17,26 @@ var themeBackground = ["#000000",
     "#333533",
     "#233d4d",
     "#0d3b66",
-    "#ffecd1",
-
-    "#354f52"];
+    "#354f52",
+    "#ffecd1"];
 var themeText = ["#ffffff",
     "#f5cb5c",
     "#fe7f2d",
     "#faf0ca",
-    "#15616d",
-
-    "#edf2f4"];
+    "#edf2f4",
+    "#15616d"];
 var themeBrace = ["#fca311",
     "#e8eddf",
     "#619b8a",
     "#f4d35e",
-    "#ff7d00",
-
-    "#ca6702"];
+    "#ca6702",
+    "#ff7d00"];
 var themeMarker = ["#eb5e28",
     "#ff9b54",
     "#a1c181",
     "#ee964b",
-    "#78290f",
-
-    "#56cfe1"];
+    "#56cfe1",
+    "#78290f"];
 
 
 var currentTheme = 0;
@@ -54,6 +51,7 @@ window.addEventListener("load", function (event) {
 function changeTheme() {
     let brace = ".braces,.ayah{color: " + themeBrace[currentTheme] + ";}";
     let body = "body{ background-color: " + themeBackground[currentTheme] + "; color: " + themeText[currentTheme] + ";}";
+
     let sup = "sup{ color: " + themeMarker[currentTheme] + ";}"
     let marker = "ol li::marker {color: " + themeMarker[currentTheme] + ";}"
     let repeat = ".repeatLabel {border-bottom-color: " + themeMarker[currentTheme] + ";}";
@@ -87,7 +85,7 @@ function Message(
 }
 
 function outputMessage(m) {
-    if (currentMessage === 0)
+    if (currentMessage === 0 && !rotateTheme)
         changeTheme();
     mTitleElement.innerHTML = m.title + " " + englishToArabicNumbers(String(currentMessage + 1)) + " من " + englishToArabicNumbers(String(messages.length));
     mBodyElement.innerHTML = m.body;
@@ -197,7 +195,8 @@ function main() {
     mFootnotesTitleElement = document.getElementById("mFootnotesTitle");
     mFootnotesListElement = document.getElementById("mFootnotesList");
     themeElement = document.getElementById("theme");
-    changeTheme();//set to initial them 
+    if (!rotateTheme)
+        changeTheme();//set to initial them 
     currentTheme = 0;
     let qString = (window.location.search.replace(/\?/g, "")).split("&");
     for (let i = 0; i < qString.length; i++) {
