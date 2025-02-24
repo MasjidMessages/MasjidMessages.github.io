@@ -41,8 +41,8 @@ var themeMarker = ["#eb5e28",
 
 var currentTheme = 0;
 var currentMessage = 0;
-var size = 18;
-var speed = 120; //100
+var size = 16;
+var speed = 130;
 var startIn = 59;
 window.addEventListener("load", function (event) {
     main();
@@ -62,6 +62,7 @@ function changeTheme() {
     if (currentTheme >= themeBrace.length)
         currentTheme = 0;
 }
+
 
 /* Messages Constructor Function */
 function Message(
@@ -85,12 +86,18 @@ function Message(
 }
 
 function outputMessage(m) {
-    if (currentMessage === 0 && !rotateTheme)
+    if (currentMessage === 0 && rotateTheme)
         changeTheme();
     mTitleElement.innerHTML = m.title + " " + englishToArabicNumbers(String(currentMessage + 1)) + " من " + englishToArabicNumbers(String(messages.length));
     mBodyElement.innerHTML = m.body;
     mBodyListElement.innerHTML = m.bodyList;
     mRepeatLabelsElement.innerHTML = m.repeatLabels;
+    if (m.footnotes.length == 0) {
+        mFootnotesTitleElement.style.opacity = "0";
+    }
+    else {
+        mFootnotesTitleElement.style.opacity = "1";
+    }
     mFootnotesTitleElement.innerHTML = m.footnotesTitle;
     mFootnotesListElement.innerHTML = m.footnotes;
 }
@@ -195,15 +202,17 @@ function main() {
     mFootnotesTitleElement = document.getElementById("mFootnotesTitle");
     mFootnotesListElement = document.getElementById("mFootnotesList");
     themeElement = document.getElementById("theme");
-    if (!rotateTheme)
-        changeTheme();//set to initial them 
+    if (rotateTheme)
+        changeTheme();//set to initial them
+
+
     currentTheme = 0;
     let qString = (window.location.search.replace(/\?/g, "")).split("&");
     for (let i = 0; i < qString.length; i++) {
         let pair = qString[i].split("=");
         if (pair.length = 2) {
             if (pair[0].trim().toLowerCase() === "size") {
-                document.documentElement.style.fontSize = pair[1] + "px";
+
                 size = Number(pair[1])
 
             } else if (pair[0].trim().toLowerCase() === "speed") {
@@ -211,6 +220,7 @@ function main() {
             }
         }
     }
+    document.documentElement.style.fontSize = size + "px";
     mBodyListElement.innerHTML = "<ol><li>speed=" + speed + "</li><li>size=" + size + "</li></ol>";
     let date = new Date();
     let startDate = new Date(date.valueOf())
