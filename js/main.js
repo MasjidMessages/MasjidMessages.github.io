@@ -238,7 +238,6 @@ function main() {
 }
 
 function nextMessage() {
-
     outputMessage(messages[currentMessage])
     setTimeout(nextMessage, messages[currentMessage].messageCharacters * speed);
     nextMessageIndex();

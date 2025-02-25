@@ -64,6 +64,8 @@
   margin-bottom: 1.5rem;
 }
 html {
+  height: 100vh;
+  width: 100vw;
   /*Main Font-size*/
   font-size: 18px;
   overflow: hidden;
@@ -71,8 +73,11 @@ html {
 
 .braces,
 .ayah {
-  color: goldenrod;
+  color: #335c67;
   overflow: hidden;
+}
+.footnotesContainer {
+  padding-left: 10%;
 }
 
 body {
@@ -80,12 +85,13 @@ body {
   width: 100vw;
   padding-top: 0.5rem;
   padding-right: 0.5rem;
-  padding-left: 25%;
-
-  background-image: url(../ramadan-2.jpeg),
-    linear-gradient(to top, #f8f8fa 0%, #ffffff 90%);
+  padding-left: 5%;
+  background-color: #d6ceaa;
+  background-image: url(../baige.svg);
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: -0.5vw 1vw;
+
   color: black;
   /*
   background-image: linear-gradient(
